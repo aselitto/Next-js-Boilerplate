@@ -15,9 +15,9 @@ const Hello = async () => {
         {`Looking for a SaaS Boilerplate? `}
         <a
           className="text-blue-700 hover:border-b-2 hover:border-blue-700"
-          href="https://nextjs-boilerplate.com/pro-saas-starter-kit"
+          href="https://google.com"
         >
-          Next.js Boilerplate SaaS
+          Check out google.com
         </a>
         {` can help you build one.`}
       </p>

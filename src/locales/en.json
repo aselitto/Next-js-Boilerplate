@@ -8,12 +8,12 @@
     "sign_up_link": "Sign up"
   },
   "BaseTemplate": {
-    "description": "Starter code for your Nextjs Boilerplate with Tailwind CSS",
+    "description": "Your control one stop shop for all of your healthcare needs!",
     "made_with": "Made with"
   },
   "Index": {
-    "meta_title": "Next.js Boilerplate Presentation",
-    "meta_description": "Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework.",
+    "meta_title": "Verified Insurances Presentation",
+    "meta_description": "Verified Insurances is the perfect control platform over your insurance information. Take healthcare into your own hands.",
     "sponsors_title": "Sponsors"
   },
   "Counter": {
