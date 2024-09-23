@@ -8,19 +8,19 @@ const sendDefaults = {
 };
 
 // FIXME: Add your production URL
-const productionURL = 'https://demo.nextjs-boilerplate.com';
+const productionURL = 'https://verify-insurances.vercel.app/';
 
 const emailChannel = new EmailAlertChannel('email-channel-1', {
   // FIXME: add your own email address, Checkly will send you an email notification if a check fails
-  address: 'contact@creativedesignsguru.com',
+  address: 'aselitto@gmail.com',
   ...sendDefaults,
 });
 
 export const config = defineConfig({
   // FIXME: Add your own project name, logical ID, and repository URL
-  projectName: 'Next.js Boilerplate',
-  logicalId: 'nextjs-boilerplate',
-  repoUrl: 'https://github.com/ixartz/Next-js-Boilerplate',
+  projectName: 'VerifiedInsurances.com',
+  logicalId: 'verified-insurances',
+  repoUrl: 'https://github.com/aselitto/vi-new',
   checks: {
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website'],
