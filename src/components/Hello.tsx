@@ -12,14 +12,14 @@ const Hello = async () => {
         {t('hello_message', { email: user?.emailAddresses[0]?.emailAddress })}
       </p>
       <p>
-        `Lets scan your insurance cards!`
+        Lets scan your insurance cards!
         <a
           className="text-blue-700 hover:border-b-2 hover:border-blue-700"
           href="https://google.com"
         >
-          Check out google.com
+          Click here!
         </a>
-        {` can help you build one.`}
+        For more accurate insurance validation.
       </p>
     </>
   );
