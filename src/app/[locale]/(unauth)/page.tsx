@@ -40,7 +40,7 @@ export default function Index(props: { params: { locale: string } }) {
           ⚡️
         </span>
         {' '}
-        Quickly book and office visit based on next available opening
+        Quickly book an office visit based on next available opening
       </p>
       <ul className="mt-3 text-base">
         <li>🚀 speed through checkin by scanning this app</li>
