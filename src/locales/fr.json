@@ -70,5 +70,13 @@
     "dashboard_link": "Tableau de bord",
     "user_profile_link": "Gérer votre compte",
     "sign_out": "Se déconnecter"
+  },
+  "OcrScanner": {
+    "select_image": "Select and Image",
+    "ocr_failed": "ocr_failed",
+    "network_error": "network_error",
+    "scan_button_label": "scan_button_label",
+    "scan_in_progress": "scan_in_progress",
+    "scan": "scan"
   }
 }

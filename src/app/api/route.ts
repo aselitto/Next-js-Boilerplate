@@ -1,15 +1,26 @@
-// 11 app/api/ocr/route.ts
-
+// app/api/ocr/route.ts
 import { Buffer } from 'node:buffer';
-import path from 'node:path';
 
 import { ImageAnnotatorClient } from '@google-cloud/vision';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-// Initialize Google Cloud Vision client
+// Decode the base64 string and parse JSON
+const googleCredentials = process.env.GOOGLE_CLOUD_KEY
+  ? JSON.parse(Buffer.from(process.env.GOOGLE_CLOUD_KEY, 'base64').toString('utf-8'))
+  : null;
+
+if (!googleCredentials) {
+  throw new Error('Google Cloud credentials not found.');
+}
+
+// Initialize Google Cloud Vision client with credentials from environment variables
 const client = new ImageAnnotatorClient({
-  keyFilename: path.join(process.cwd(), 'src', 'config', 'google-credentials.json'),
+  credentials: {
+    client_email: googleCredentials.client_email,
+    private_key: googleCredentials.private_key,
+  },
+  projectId: googleCredentials.project_id,
 });
 
 export async function POST(req: NextRequest) {
@@ -47,9 +58,9 @@ export async function POST(req: NextRequest) {
     const [result] = await client.textDetection(buffer);
     const detections = result.textAnnotations;
     const extractedText
-          = detections && detections.length > 0 && detections[0] && detections[0].description
-            ? detections[0].description
-            : 'No text found.';
+      = detections && detections.length > 0 && detections[0] && detections[0].description
+        ? detections[0].description
+        : 'No text found.';
 
     return NextResponse.json({ text: extractedText });
   } catch (error) {

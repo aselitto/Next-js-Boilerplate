@@ -1,8 +1,7 @@
-// src/components/OcrScanner.tsx
 import { useTranslations } from 'next-intl';
 import React, { useState } from 'react';
 
-type OcrScannerProps = {
+export type OcrScannerProps = {
   simulateDelay?: boolean;
 };
 
@@ -31,48 +30,78 @@ const OcrScanner: React.FC<OcrScannerProps> = ({ simulateDelay = false }) => {
     setError('');
     setOcrText('');
 
-    try {
-      const formData = new FormData();
-      formData.append('image', selectedFile);
+    const handleOcrScan = async () => {
+      try {
+        const formData = new FormData();
+        formData.append('image', selectedFile);
 
-      let url = '/api/ocr';
-      if (simulateDelay) {
-        // If simulateDelay prop is true, add a query parameter to simulate delay
-        url += '?delay=2000'; // 2 seconds delay
+        // Determine the API URL based on the environment
+        const isStorybook = typeof window !== 'undefined' && window.location.hostname === 'localhost';
+        const url = isStorybook
+          ? 'https://your-project.vercel.app/api/ocr' // Replace with your actual Vercel URL
+          : '/api/ocr';
+
+        if (simulateDelay) {
+          // Append delay query parameter if needed
+          const urlWithDelay = `${url}?delay=2000`;
+          const response = await fetch(urlWithDelay, {
+            method: 'POST',
+            body: formData,
+          });
+
+          if (!response.ok) {
+            const errorData = await response.json();
+            setError(errorData.error || t('ocr_failed'));
+            return;
+          }
+
+          const data = await response.json();
+          setOcrText(data.text);
+        } else {
+          const response = await fetch(url, {
+            method: 'POST',
+            body: formData,
+          });
+
+          if (!response.ok) {
+            const errorData = await response.json();
+            setError(errorData.error || t('ocr_failed'));
+            return;
+          }
+
+          const data = await response.json();
+          setOcrText(data.text);
+        }
+      } catch (err) {
+        console.error('Scan Error:', err);
+        setError(t('network_error'));
+      } finally {
+        setLoading(false);
       }
+    };
 
-      const response = await fetch(url, {
-        method: 'POST',
-        body: formData,
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setOcrText(data.text);
-      } else {
-        setError(data.error || t('ocr_failed'));
-      }
-    } catch (err) {
-      console.error('Scan Error:', err);
-      setError(t('network_error'));
-    } finally {
-      setLoading(false);
-    }
+    await handleOcrScan();
   };
 
   return (
     <div className="rounded bg-white p-4 shadow-md">
       <h2 className="mb-4 text-xl font-bold">{t('scan_button_label')}</h2>
 
-      <input type="file" accept="image/*" onChange={handleFileChange} className="mb-4" />
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleFileChange}
+        className="mb-4"
+      />
 
       <button
         type="button"
         onClick={handleScan}
         disabled={loading || !selectedFile}
         className={`rounded px-4 py-2 text-white ${
-          loading || !selectedFile ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-600'
+          loading || !selectedFile
+            ? 'bg-gray-400'
+            : 'bg-blue-500 hover:bg-blue-600'
         }`}
       >
         {loading ? t('scan_in_progress') : t('scan')}

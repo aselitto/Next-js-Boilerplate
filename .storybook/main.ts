@@ -1,6 +1,19 @@
-import type { StorybookConfig } from '@storybook/nextjs';
+// .storybook/main.ts
+import path from 'node:path';
 
-const config: StorybookConfig = {
+import type { StorybookConfig } from '@storybook/nextjs';
+import type { Configuration } from 'webpack';
+
+type ExtendedStorybookConfig = {
+  devServer?: {
+    proxy: {
+      [key: string]: any;
+    };
+    before?: (app: any) => void;
+  };
+} & StorybookConfig;
+
+const config: ExtendedStorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
     '@storybook/addon-onboarding',
@@ -18,6 +31,25 @@ const config: StorybookConfig = {
   staticDirs: ['../public'],
   core: {
     disableTelemetry: true,
+  },
+  webpackFinal: async (config: Configuration) => {
+    if (config.resolve) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@': path.resolve(__dirname, '../src'),
+      };
+    }
+    return config;
+  },
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        secure: false,
+        pathRewrite: { '^/api': '/api' },
+      },
+    },
   },
 };
 

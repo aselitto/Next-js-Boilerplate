@@ -1,11 +1,12 @@
-// OcrScanner.stories.tsx
+// src/components/OcrScanner.stories.tsx
 import type { Meta, StoryFn } from '@storybook/react';
 import { NextIntlClientProvider } from 'next-intl';
 import React from 'react';
 
 import messages from '@/locales/en.json';
 
-import OcrScanner from './OcrScanner'; // Adjust the import if necessary
+import type { OcrScannerProps } from './OcrScanner';
+import OcrScanner from './OcrScanner'; // Ensure correct import
 
 const meta: Meta<typeof OcrScanner> = {
   title: 'Components/OcrScanner',
@@ -22,10 +23,6 @@ const meta: Meta<typeof OcrScanner> = {
 };
 
 export default meta;
-
-type OcrScannerProps = {
-  simulateDelay?: boolean;
-};
 
 const Template: StoryFn<OcrScannerProps> = (args: OcrScannerProps) => <OcrScanner {...args} />;
 

@@ -28,6 +28,14 @@ export default function DashboardLayout(props: { children: React.ReactNode }) {
               {t('user_profile_link')}
             </Link>
           </li>
+          <li>
+            <Link
+              href="/dashboard/ocr/"
+              className="border-none text-gray-700 hover:text-gray-900"
+            >
+              {t('ocr_scanner_link')}
+            </Link>
+          </li>
         </>
       )}
       rightNav={(
