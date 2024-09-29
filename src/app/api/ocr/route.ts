@@ -10,20 +10,24 @@ const googleCredentials = process.env.GOOGLE_CLOUD_KEY
   ? JSON.parse(Buffer.from(process.env.GOOGLE_CLOUD_KEY, 'base64').toString('utf-8'))
   : null;
 
-if (!googleCredentials) {
-  throw new Error('Google Cloud credentials not found.');
+// Initialize Google Cloud Vision client only if credentials are present
+let client: ImageAnnotatorClient | null = null;
+
+if (googleCredentials) {
+  client = new ImageAnnotatorClient({
+    credentials: {
+      client_email: googleCredentials.client_email,
+      private_key: googleCredentials.private_key,
+    },
+    projectId: googleCredentials.project_id,
+  });
 }
 
-// Initialize Google Cloud Vision client with credentials from environment variables
-const client = new ImageAnnotatorClient({
-  credentials: {
-    client_email: googleCredentials.client_email,
-    private_key: googleCredentials.private_key,
-  },
-  projectId: googleCredentials.project_id,
-});
-
 export async function POST(req: NextRequest) {
+  if (!client) {
+    return NextResponse.json({ error: 'Google Cloud credentials not found.' }, { status: 500 });
+  }
+
   try {
     // Optional: Simulate network delay if 'delay' query parameter is present
     const delay = req.nextUrl.searchParams.get('delay');
@@ -44,10 +48,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Only image files are allowed.' }, { status: 400 });
     }
 
-    // Validate file size (e.g., max 5MB)
-    const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+    // Validate file size (e.g., max 4MB to comply with Vercel's limit)
+    const MAX_FILE_SIZE = 4 * 1024 * 1024; // 4MB
     if (imageFile.size > MAX_FILE_SIZE) {
-      return NextResponse.json({ error: 'File size exceeds 5MB.' }, { status: 400 });
+      return NextResponse.json({ error: 'File size exceeds 4MB.' }, { status: 400 });
     }
 
     // Read the image file as a buffer
@@ -69,6 +73,10 @@ export async function POST(req: NextRequest) {
   }
 }
 
+// Optional: Add a GET handler for testing
 export async function GET(_req: NextRequest) {
+  if (!client) {
+    return NextResponse.json({ message: 'OCR API is not configured.' }, { status: 500 });
+  }
   return NextResponse.json({ message: 'OCR API is working.' });
 }
