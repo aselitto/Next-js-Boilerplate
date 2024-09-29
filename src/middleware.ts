@@ -21,12 +21,12 @@ export default function middleware(
 ) {
   const pathname = request.nextUrl.pathname;
 
-  // Exclude API routes from internationalization
+  // Exclude API routes from internationalization and Clerk middleware
   if (pathname.startsWith('/api')) {
     return;
   }
 
-  // Run Clerk middleware only when it's necessary
+  // Run Clerk middleware only when necessary
   if (
     pathname.includes('/sign-in')
     || pathname.includes('/sign-up')
@@ -40,7 +40,7 @@ export default function middleware(
         const signInUrl = new URL(`${locale}/sign-in`, req.url);
 
         auth().protect({
-          // `unauthenticatedUrl` is needed to avoid error: "Unable to find `next-intl` locale because the middleware didn't run on this request"
+          // `unauthenticatedUrl` is needed to avoid errors related to internationalization
           unauthenticatedUrl: signInUrl.toString(),
         });
       }
@@ -53,5 +53,5 @@ export default function middleware(
 }
 
 export const config = {
-  matcher: ['/((?!.+\\.[\\w]+$|_next|monitoring).*)', '/', '/(api|trpc)(.*)'], // Also exclude tunnelRoute used in Sentry from the matcher
+  matcher: ['/((?!.+\\.[\\w]+$|_next|monitoring|api).*)', '/', '/(trpc)(.*)'],
 };
