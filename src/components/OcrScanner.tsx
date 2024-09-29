@@ -89,12 +89,24 @@ const OcrScanner: React.FC<OcrScannerProps> = ({ simulateDelay = false }) => {
     <div className="rounded bg-white p-4 shadow-md">
       <h2 className="mb-4 text-xl font-bold">{t('scan_button_label')}</h2>
 
+      <label htmlFor="file-input" className="file-input-label mb-4 inline-block cursor-pointer rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">
+        {t('choose_image')}
+      </label>
       <input
+        id="file-input"
         type="file"
         accept="image/*"
+        capture="environment"
         onChange={handleFileChange}
-        className="mb-4"
+        className="hidden"
       />
+
+      {selectedFile && (
+        <p className="mb-2">
+          Selected File:
+          {selectedFile.name}
+        </p>
+      )}
 
       <button
         type="button"

@@ -72,11 +72,13 @@
     "sign_out": "Se déconnecter"
   },
   "OcrScanner": {
-    "select_image": "Select and Image",
-    "ocr_failed": "ocr_failed",
-    "network_error": "network_error",
-    "scan_button_label": "scan_button_label",
-    "scan_in_progress": "scan_in_progress",
-    "scan": "scan"
+    "select_image": "Select an Image",
+    "ocr_failed": "OCR failed",
+    "network_error": "Network error",
+    "scan_button_label": "Scan",
+    "scan_in_progress": "Scan in progress",
+    "scan": "Scan",
+    "meta_title": "OCR",
+    "choose_image": "Choose an Image"
   }
 }

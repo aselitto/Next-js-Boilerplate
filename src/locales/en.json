@@ -83,6 +83,7 @@
     "scan_button_label": "Scan",
     "scan_in_progress": "Scan in progress",
     "scan": "Scan",
-    "meta_title": "OCR"
+    "meta_title": "OCR",
+    "choose_image": "Choose an Image"
   }
 }
