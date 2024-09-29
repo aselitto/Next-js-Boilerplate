@@ -68,3 +68,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'OCR processing failed.' }, { status: 500 });
   }
 }
+
+export async function GET(_req: NextRequest) {
+  return NextResponse.json({ message: 'OCR API is working.' });
+}
