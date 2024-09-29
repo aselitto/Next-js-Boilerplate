@@ -1,4 +1,4 @@
-// app/dashboard/ocr/page.tsx
+// app/[locale]/(auth)/dashboard/ocr/page.tsx
 import { getTranslations } from 'next-intl/server';
 
 import OcrScanner from '@/components/OcrScanner';
