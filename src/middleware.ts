@@ -19,16 +19,23 @@ export default function middleware(
   request: NextRequest,
   event: NextFetchEvent,
 ) {
+  const pathname = request.nextUrl.pathname;
+
+  // Exclude API routes from internationalization
+  if (pathname.startsWith('/api')) {
+    return;
+  }
+
   // Run Clerk middleware only when it's necessary
   if (
-    request.nextUrl.pathname.includes('/sign-in')
-    || request.nextUrl.pathname.includes('/sign-up')
+    pathname.includes('/sign-in')
+    || pathname.includes('/sign-up')
     || isProtectedRoute(request)
   ) {
     return clerkMiddleware((auth, req) => {
       if (isProtectedRoute(req)) {
         const locale
-          = req.nextUrl.pathname.match(/(\/.*)\/dashboard/)?.at(1) ?? '';
+          = req.nextUrl.pathname.match(/(\/.*)\/dashboard/)?.[1] ?? '';
 
         const signInUrl = new URL(`${locale}/sign-in`, req.url);
 
