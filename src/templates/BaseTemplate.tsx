@@ -35,7 +35,7 @@ const BaseTemplate = (props: {
           </div>
         </header>
 
-        <main className="flex flex-1 justify-center overflow-auto p-4">{props.children}</main>
+        <main>{props.children}</main>
 
         <footer className="border-t border-gray-300 py-8 text-center text-sm">
           {`© Copyright ${new Date().getFullYear()} ${AppConfig.name}. ${t('made_with')} `}
