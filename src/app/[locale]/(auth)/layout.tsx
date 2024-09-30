@@ -1,6 +1,10 @@
+// src/layouts/AuthLayout.tsx
+
 import { enUS, frFR } from '@clerk/localizations';
 import { ClerkProvider } from '@clerk/nextjs';
 
+import { DemoBanner } from '@/components/DemoBanner';
+import ReduxProvider from '@/components/ReduxProvider';
 import { AppConfig } from '@/utils/AppConfig';
 
 export default function AuthLayout(props: {
@@ -30,7 +34,10 @@ export default function AuthLayout(props: {
       signInFallbackRedirectUrl={dashboardUrl}
       signUpFallbackRedirectUrl={dashboardUrl}
     >
-      {props.children}
+      <ReduxProvider>
+        <DemoBanner />
+        {props.children}
+      </ReduxProvider>
     </ClerkProvider>
   );
 }

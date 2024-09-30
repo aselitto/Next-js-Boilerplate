@@ -36,21 +36,6 @@
     "about_paragraph": "Welcome to our About page! We are a team of passionate individuals dedicated to creating amazing software.",
     "translation_powered_by": "Translation powered by"
   },
-  "Portfolio": {
-    "meta_title": "Portfolio",
-    "meta_description": "Welcome to my portfolio page!",
-    "presentation": "Welcome to my portfolio page! Here you will find a carefully curated collection of my work and accomplishments. Through this portfolio, I'm to showcase my expertise, creativity, and the value I can bring to your projects.",
-    "portfolio_name": "Portfolio {name}",
-    "error_reporting_powered_by": "Error reporting powered by",
-    "coverage_powered_by": "Code coverage powered by"
-  },
-  "PortfolioSlug": {
-    "meta_title": "Portfolio {slug}",
-    "meta_description": "Portfolio {slug} description",
-    "header": "Portfolio {slug}",
-    "content": "Created a set of promotional materials and branding elements for a corporate event. Crafted a visually unified theme, encompassing a logo, posters, banners, and digital assets. Integrated the client's brand identity while infusing it with a contemporary and innovative approach. Garnered favorable responses from event attendees, resulting in a successful event with heightened participant engagement and increased brand visibility.",
-    "log_management_powered_by": "Log management powered by"
-  },
   "SignIn": {
     "meta_title": "Sign in",
     "meta_description": "Seamlessly sign in to your account with our user-friendly login process."
@@ -72,9 +57,35 @@
   },
   "DashboardLayout": {
     "dashboard_link": "Dashboard",
-    "user_profile_link": "Settings",
+    "user_profile_link": "⚙️",
     "sign_out": "Sign out",
-    "ocr_scanner_link": "OCR"
+    "profile": "Profile",
+    "insurance": "Insurance"
+  },
+  "InsurancePage": {
+    "meta_title": "Insurance Details",
+    "meta_description": "Manage your insurance information."
+  },
+  "InsuranceForm": {
+    "form_title": "Insurance Details",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "address": "Address",
+    "email": "Email",
+    "policy_number": "Policy Number",
+    "group_number": "Group Number",
+    "first_name_required": "First name is required.",
+    "last_name_required": "Last name is required.",
+    "address_required": "Address is required.",
+    "email_required": "Email is required.",
+    "email_invalid": "Please enter a valid email address.",
+    "policy_number_required": "Policy number is required.",
+    "group_number_required": "Group number is required.",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "submission_success": "Insurance information submitted successfully.",
+    "submission_failed": "Failed to submit insurance information.",
+    "submission_error": "An error occurred while submitting the form."
   },
   "OcrScanner": {
     "select_image": "Select an Image",
@@ -84,6 +95,11 @@
     "scan_in_progress": "Scan in progress",
     "scan": "Scan",
     "meta_title": "OCR",
-    "choose_image": "Choose an Image"
+    "choose_image": "Choose an Image",
+    "selected_file": "Selected file: {file}",
+    "incomplete_data": "Incomplete data"
+  },
+  "DemoBanner": {
+    "slogan": "Your Trusted Partner for Verified Insurance Information."
   }
 }

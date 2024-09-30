@@ -22,24 +22,25 @@ export default function DashboardLayout(props: { children: React.ReactNode }) {
           </li>
           <li>
             <Link
+              href="/dashboard/ocr/"
+              className="border-none text-gray-700 hover:text-gray-900"
+            >
+              {t('profile')}
+            </Link>
+          </li>
+
+        </>
+      )}
+      rightNav={(
+        <>
+          <li>
+            <Link
               href="/dashboard/user-profile/"
               className="border-none text-gray-700 hover:text-gray-900"
             >
               {t('user_profile_link')}
             </Link>
           </li>
-          <li>
-            <Link
-              href="/dashboard/ocr/"
-              className="border-none text-gray-700 hover:text-gray-900"
-            >
-              {t('ocr_scanner_link')}
-            </Link>
-          </li>
-        </>
-      )}
-      rightNav={(
-        <>
           <li>
             <SignOutButton>
               <button className="border-none text-gray-700 hover:text-gray-900" type="button">
