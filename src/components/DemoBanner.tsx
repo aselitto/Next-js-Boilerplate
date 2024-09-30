@@ -2,33 +2,32 @@
 
 'use client';
 
-// Example of an elegant font already available in your project, adjust to the one you need 1
-import { Roboto } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
 import { AppConfig } from '@/utils/AppConfig';
 
-// Configure the font (replace with your project's font)
-const elegantFont = Roboto({
+// Using Inter, a modern and elegant sans-serif font.
+const modernFont = Inter({
   subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-elegant',
+  weight: ['400', '600', '700'],
+  variable: '--font-inter',
 });
 
 const DemoBanner = () => {
   const t = useTranslations<'DemoBanner'>('DemoBanner');
 
   return (
-    <div className={`sticky top-0 z-50 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white ${elegantFont.className} animate-pulse`}>
-      <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
+    <div className={`bg-dark-gradient relative z-50 text-white ${modernFont.className}`}>
+      <div className="mx-auto max-w-5xl px-4 py-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center">
-          {/* Company Name */}
           <div className="text-center">
-            <h1 className="bg-gradient-to-br from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-5xl font-bold text-transparent drop-shadow-2xl sm:text-6xl">
+            {/* Neumorphic-style Company Name */}
+            <h1 className="neumorphic-text bg-gradient-to-r from-blue-300 via-teal-500 to-indigo-600 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl">
               {AppConfig.name}
             </h1>
-            <p className="mt-2 text-lg text-white drop-shadow-md">
+            <p className="text-md neumorphic-text mt-2 text-gray-300">
               {t('slogan')}
             </p>
           </div>

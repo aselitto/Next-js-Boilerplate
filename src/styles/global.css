@@ -1,3 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Light gray metallic gradient background */
+.bg-metallic-gradient {
+  background: linear-gradient(135deg, #e5e5e5, #f0f0f0, #fafafa);
+  background-size: 400% 400%;
+  animation: subtleMetallicShift 20s ease-in-out infinite;
+}
+
+/* Subtle gradient shift to give a metallic effect */
+@keyframes subtleMetallicShift {
+  0%,
+  100% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Dark Gradient Background for Header */
+.bg-dark-gradient {
+  background: linear-gradient(135deg, #1f1f1f, #2a2a2a);
+}
+
+/* Neumorphic shadow for text (dark mode) */
+.neumorphic-text {
+  text-shadow:
+    3px 3px 6px rgba(0, 0, 0, 0.6),
+    -3px -3px 6px rgba(255, 255, 255, 0.1); /* Top-left highlight for the pressed effect */
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Add some hover effect for interactivity */
+.neumorphic-text:hover {
+  text-shadow:
+    5px 5px 10px rgba(0, 0, 0, 0.8),
+    -5px -5px 10px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Subtle Gradient Animation */
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.bg-gradient-to-r {
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+/* Ensure the middle content fills the screen height */
+.min-h-full {
+  min-height: 100vh;
+}
