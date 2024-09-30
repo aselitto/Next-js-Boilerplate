@@ -32,7 +32,7 @@ const Template: StoryFn<typeof InsuranceForm> = (args: React.ComponentProps<type
 
 export const Default = Template.bind({});
 Default.args = {
-  initialData: null, // or provide mock data 1
+  initialData: null, // or provide mock data 1 2
 };
 
 export const WithInitialData = Template.bind({});

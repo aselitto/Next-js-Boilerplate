@@ -1,4 +1,4 @@
-// src/layouts/AuthLayout.tsx
+// src/layouts/AuthLayout.tsx 1
 
 import { enUS, frFR } from '@clerk/localizations';
 import { ClerkProvider } from '@clerk/nextjs';

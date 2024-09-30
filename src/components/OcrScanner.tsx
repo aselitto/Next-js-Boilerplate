@@ -62,7 +62,7 @@ const OcrScanner: React.FC<OcrScannerProps> = ({ simulateDelay = false }) => {
     return match ? match[1] || '' : '';
   };
 
-  // Function to parse OCR text and extract user details
+  // Function to parse OCR text and extract user details 2
   const parseOcrText = (text: string): User => {
     const user: User = {
       firstName: extractFirstName(text),

@@ -1,4 +1,4 @@
-// src/store/slices/userSlice.ts
+// src/store/slices/userSlice.ts 2
 
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';

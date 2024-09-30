@@ -2,7 +2,7 @@
 
 'use client';
 
-import type { User } from '@sentry/nextjs'; // Ensure this matches your User type 1
+import type { User } from '@sentry/nextjs'; // Ensure this matches your User type 1 2
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import type { SubmitHandler } from 'react-hook-form';

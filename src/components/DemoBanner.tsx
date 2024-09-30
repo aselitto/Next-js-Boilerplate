@@ -2,7 +2,7 @@
 
 'use client';
 
-// Example of an elegant font already available in your project, adjust to the one you need
+// Example of an elegant font already available in your project, adjust to the one you need 1
 import { Roboto } from 'next/font/google';
 import { useTranslations } from 'next-intl';
 import React from 'react';

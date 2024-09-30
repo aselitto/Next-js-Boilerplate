@@ -4,7 +4,7 @@ import { createContext, useMemo, useState } from 'react';
 
 type User = {
   name: string;
-  // other user fields
+  // other user fields 2
 };
 
 type UserContextType = {

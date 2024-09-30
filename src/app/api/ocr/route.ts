@@ -10,7 +10,7 @@ const googleCredentials = process.env.GOOGLE_CLOUD_KEY
   ? JSON.parse(Buffer.from(process.env.GOOGLE_CLOUD_KEY, 'base64').toString('utf-8'))
   : null;
 
-// Initialize Google Cloud Vision client only if credentials are present
+// Initialize Google Cloud Vision client only if credentials are present 1
 let client: ImageAnnotatorClient | null = null;
 
 if (googleCredentials) {

@@ -1,4 +1,4 @@
-// src/templates/BaseTemplate.tsx
+// src/templates/BaseTemplate.tsx 2
 import { useTranslations } from 'next-intl';
 
 import { AppConfig } from '@/utils/AppConfig';

@@ -7,7 +7,7 @@ import { pgTable, serial, timestamp, varchar } from 'drizzle-orm/pg-core';
 // 2. Generate a new migration by running: `npm run db:generate`
 
 // The generated migration file will reflect your schema changes.
-// The migration is automatically applied during the next database interaction,
+// The migration is automatically applied during the next database interaction, 1
 // so there's no need to run it manually.
 
 export const userOcrSchema = pgTable('user_ocr', {
