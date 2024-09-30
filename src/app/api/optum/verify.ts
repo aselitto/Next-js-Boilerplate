@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   }
 
   try {
-    // Integrate with Optum Eligible API
+    // Integrate with Optum Eligible API 1
     // Replace with actual API endpoint and authentication
     const response = await fetch('https://api.optum.com/eligible', {
       method: 'POST',

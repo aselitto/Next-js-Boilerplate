@@ -20,7 +20,7 @@ const DemoBanner = () => {
   const t = useTranslations<'DemoBanner'>('DemoBanner');
 
   return (
-    <div className={`sticky top-0 z-50 bg-gradient-to-r from-purple-800 via-pink-800 to-red-800 text-white ${elegantFont.className} animate-none`}>
+    <div className={`sticky top-0 z-50 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white ${elegantFont.className} animate-pulse`}>
       <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center">
           {/* Company Name */}

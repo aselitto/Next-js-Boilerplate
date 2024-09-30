@@ -1,6 +1,6 @@
 // src/components/ReduxProvider.tsx
 
-'use client'; // Ensure this is a client component
+'use client'; // Ensure this is a client component 1
 
 import React from 'react';
 import { Provider } from 'react-redux';

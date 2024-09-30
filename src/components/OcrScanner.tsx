@@ -71,7 +71,7 @@ const OcrScanner: React.FC<OcrScannerProps> = ({ simulateDelay = false }) => {
       email: extractEmail(text),
       policyNumber: extractPolicyNumber(text),
       groupNumber: extractGroupNumber(text),
-      // Add other fields as necessary
+      // Add other fields as necessary 1
     };
     return user;
   };

@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
 
 export default axiosInstance;
 
-// Use this in a component to use it.
+// Use this in a component to use it. 1
 
 // export const fetchData = async () => {
 //   try {

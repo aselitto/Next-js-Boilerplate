@@ -20,7 +20,7 @@ const userSlice = createSlice({
     setUser(state, action: PayloadAction<User | null>) {
       state.user = action.payload;
     },
-    // Optionally, add more reducers if needed
+    // Optionally, add more reducers if needed 1
   },
 });
 

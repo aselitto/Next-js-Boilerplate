@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: { locale: string } 
   });
 
   return {
-    title: t('meta_title'), // Ensure 'meta_title' exists in your translation files
+    title: t('meta_title'), // Ensure 'meta_title' exists in your translation files 1
   };
 }
 
